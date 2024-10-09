@@ -1,8 +1,10 @@
 services:
   frontend:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     restart: unless-stopped
     ports:
-      - 3000:3000/tcp
+      - 3000:80/tcp
     volumes:
       - ./frontend/:/app/

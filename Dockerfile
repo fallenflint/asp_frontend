@@ -1,11 +1,18 @@
-FROM node:alpine
+FROM node:alpine AS builder
+
+ENV NODE_ENV production
 
 WORKDIR /app
 
-COPY ./frontend/package*.json /app
-
+COPY ./frontend/package.json ./
 RUN npm install
 
-COPY frontend/* .
+COPY frontend .
 
-CMD ["npm", "start"]
+RUN npm run build
+
+FROM nginx
+
+COPY --from=builder /app/build /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
