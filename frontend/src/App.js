@@ -9,17 +9,26 @@ import Layout from './Layout';
 import { isAuthenticated, setIsAuthenticated } from './utils/api';
 
 
+const PublicRoutes = ({isAuthenticated}) => (
+  <Routes>
+    <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />
+    <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />} />
+  </Routes>
+);
+
+const ProtectedRoutes = () => (
+  <Routes>
+    <Route path="/companies" element={ <Layout><CompanyList/></Layout>} />
+    <Route path="/users" element={ <Layout><UserList/></Layout>} />
+    <Route path="/" element={ <Layout><ProjectList/></Layout>} />
+  </Routes>
+);
+
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/" element={ <Layout><ProjectList/></Layout>} />
-        <Route path="/companies" element={ <Layout><CompanyList/></Layout>} />
-        <Route path="/users" element={ <Layout><UserList/></Layout>} />
-        {/* <Route path="/" element={isAuthenticated() ? <ProjectList /> : <Navigate to="/login" />} /> */}
-      </Routes>
+      <PublicRoutes isAuthenticated={isAuthenticated}/>
+      <ProtectedRoutes />
     </Router>
   );
 };

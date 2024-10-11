@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiFetch } from './utils/api';
@@ -19,17 +18,13 @@ const LoginPage = ({ setIsAuthenticated }) => {
     try {
       const response = await apiFetch('http://localhost/api/token/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
         body: JSON.stringify(credentials)
       });
 
       if (response.ok) {
         const data = await response.json();
-        // Сохраняем токен в localStorage или в состоянии
-        localStorage.setItem('token', data.access);
-        // setIsAuthenticated(true);
+        // localStorage.setItem('token', data.access);
+        setIsAuthenticated(data.access);
         console.log('navigating to /');
         navigate('/');
         console.log('navigating to / chpok');
@@ -106,26 +101,3 @@ const LoginPage = ({ setIsAuthenticated }) => {
 };
 
 export default LoginPage;
-
-
-/*
-<Gird container>
-      <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
-        <h2>Login</h2>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
-      
-    </Gird> 
-*/

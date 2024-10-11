@@ -1,8 +1,9 @@
 import { Navigate } from 'react-router-dom';
 
-const Logout = () => {
+const Logout = ({setIsAuthenticated}) => {
     localStorage.removeItem('token');
-    return (<Navigate to='/'/>)
+    setIsAuthenticated(false);
+    return (<Navigate to='/login'/>)
 };
 
 export default Logout;

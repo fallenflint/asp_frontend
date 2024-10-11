@@ -5,6 +5,9 @@ services:
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     ports:
-      - 3000:80/tcp
+      - 3000:3000/tcp
     volumes:
-      - ./frontend/:/app/
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    # command: ["ls", "-al"]
+    command: ["npm", "start"]

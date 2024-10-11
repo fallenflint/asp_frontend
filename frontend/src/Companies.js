@@ -2,14 +2,20 @@ import ObjectList from './ObjectList';
 
 const CompaniesList = () => {
   const columns = [
-    { field: 'inner_num', headerName: 'ВНУТРЕННИЙ НОМЕР', flex: 1 },
-    { field: 'name', headerName: 'НАИМЕНОВАНИЕ', flex: 1 },
-    { field: 'customer', headerName: 'ЗАКАЗЧИК', flex: 1 },
-    { field: 'inner_company', headerName: 'ВНУТРЕННЯЯ КОМПАНИЯ', flex: 1 },
-    { field: 'manager', headerName: 'МЕНЕДЖЕР', flex: 1 },
-    { field: 'status', headerName: 'СТАТУС', flex: 1 },
-    { field: 'sum', headerName: 'СУММА', flex: 1 },
-    { field: 'updated_at', headerName: 'ДАТА ОБНОВЛЕНИЯ', flex: 1 },
+    { field: 'name', headerName: 'Наименование', flex: 1 },
+    { field: 'inn', headerName: 'ИНН', flex: 1 },
+    { field: 'type', headerName: 'Внутренняя компания', flex: 1 },
+    { field: 'city', headerName: 'Менеджер', flex: 1 },
+    { field: 'address', headerName: 'Статус', flex: 1 },
+    { field: 'phone', headerName: 'Сумма', flex: 1 },
+    { field: 'email', headerName: 'Дата обновления', flex: 1 },
+
+    
+    
+    
+    
+    
+    
   ];
 
   return (

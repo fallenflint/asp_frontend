@@ -18,7 +18,12 @@ const pages = [
   ['Компании', '/companies'],
   ['Пользователи', '/users'],
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = [
+  ['Profile', ''],
+  ['Account', ''],
+  ['Dashboard', ''],
+  ['Выйти', '/logout'],
+];
 
 function Logo() {
   return (
@@ -138,9 +143,11 @@ function ASPNavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
+              {settings.map(([title, link]) => (
+                <MenuItem key={link} onClick={handleCloseUserMenu}>
+                  <Link to={link} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <Typography sx={{ textAlign: 'center' }}>{title}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>

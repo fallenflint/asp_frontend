@@ -1,10 +1,10 @@
 export const apiFetch = async (url, options = {}) => {
   const token = localStorage.getItem('token');
-  options = {
-    'headers': {
-      'Authorization': `Bearer ${token}`
-    }
-  };
+  options = options || {};
+  options.headers = {...options.headers, ...{
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+  }};
 
   const response = await fetch(url, options);
   if (response.status === 401) {

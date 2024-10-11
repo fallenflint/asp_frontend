@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import axios from "axios";
 import { apiFetch } from './utils/api';
-
+import Alert from '@mui/material/Alert';
 
 const ObjectList = ({columns, api_url}) => {
   const [objects, setObjects] = useState([]);
@@ -10,9 +9,11 @@ const ObjectList = ({columns, api_url}) => {
   const [pageSize, setPageSize] = useState(20); // Assuming the page size is 10
   const [rowCount, setRowCount] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const fetchObjects = async (pageNumber) => {
     setLoading(true);
+    setError(false);
     try {
       const response = await apiFetch(
         `${api_url}?page=${pageNumber}`,
@@ -23,6 +24,7 @@ const ObjectList = ({columns, api_url}) => {
       setPageSize(data.results.length);
     } catch (error) {
       console.error("Failed to fetch objects", error);
+      setError(error);
     }
     setLoading(false);
   };
@@ -30,7 +32,6 @@ const ObjectList = ({columns, api_url}) => {
   useEffect(() => {
     fetchObjects(page);
   }, [page]);
-
 
   return (
     <div style={{ width: "100%" }}>
@@ -46,6 +47,13 @@ const ObjectList = ({columns, api_url}) => {
         loading={loading}
         disableSelectionOnClick
         autoPageSize
+        components={{
+            NoRowsOverlay: () => (
+              <div style={{ padding: 20, textAlign: 'center' }}>
+                {error ? <Alert severity="error">{error}</Alert> : 'No data available'}
+              </div>
+            ),
+          }}
       />
     </div>
   );

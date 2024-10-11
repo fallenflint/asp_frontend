@@ -5,9 +5,9 @@ import CancelIcon from '@mui/icons-material/Cancel';
 
 const UserList = () => {
   const columns = [
-    { field: 'email', headerName: 'EMAIL', flex: 1},
-    { field: 'full_name', headerName: 'ИМЯ', flex: 1},
-    { field: 'phone', headerName: 'ТЕЛЕФОН', flex: 1},
+    { field: 'email', headerName: 'Email', flex: 1},
+    { field: 'full_name', headerName: 'Имя', flex: 1},
+    { field: 'phone', headerName: 'Телефон', flex: 1},
     { field: 'inner_company', headerName: 'Компания', flex: 1},
     { field: 'is_active', headerName: 'Активен', flex: 1, renderCell: (params)=>params.value? <CheckIcon/>:<CancelIcon/>},
     { field: 'is_staff', headerName: 'Staff', flex: 1, renderCell: (params)=>params.value? <CheckIcon/>:<CancelIcon/>},
