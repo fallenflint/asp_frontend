@@ -3,7 +3,7 @@ import { useState } from 'react';
 import LoginPage from './Login';
 import Logout from './Logout';
 import ProjectList, {ProjectDetail} from './Projects';
-import CompanyList, {CompanyDetail} from './Companies';
+import CompanyList, {CompanyDetail, CompanyCreate} from './Companies';
 import UserList, {UserDetail} from './Users';
 import Layout from './Layout';
 import { isAuthenticated, setIsAuthenticated } from './utils/api';
@@ -20,6 +20,7 @@ const ProtectedRoutes = () => (
   <Routes>
     <Route path="/companies" element={ <Layout><CompanyList/></Layout>} />
     <Route path="/companies/detail/:uuid" element={ <Layout><CompanyDetail/></Layout>} />
+    <Route path="/companies/create" element={ <Layout><CompanyCreate/></Layout>} />
     <Route path="/users" element={ <Layout><UserList/></Layout>} />
     <Route path="/users/detail/:uuid" element={ <Layout><UserDetail/></Layout>} />
     <Route path="/projects" element={ <Layout><ProjectList/></Layout>} />

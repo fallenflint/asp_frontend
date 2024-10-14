@@ -5,7 +5,9 @@ export const apiFetch = async (url, options = {}) => {
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
   }};
-
+  if (options.body && typeof options.body === 'object') {
+    options.body = JSON.stringify(options.body);
+  }
   const response = await fetch(url, options);
   if (response.status === 401) {
     localStorage.removeItem('token');

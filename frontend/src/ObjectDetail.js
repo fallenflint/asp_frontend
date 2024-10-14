@@ -2,14 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { DataGrid } from "@mui/x-data-grid";
 import { apiFetch } from './utils/api';
-import Alert from '@mui/material/Alert';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import {Alert, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 const ObjectDetail = ({api_url}) => {
   const [object, setObject] = useState({});
@@ -54,6 +49,10 @@ const ObjectDetail = ({api_url}) => {
                   <TableCell>{value}</TableCell>
                 </TableRow>
               ))}
+              <TableRow>
+                  <TableCell><Button variant="outlined" color="error" startIcon={<DeleteIcon />} onClick={()=>{navigate(`/companies/delete/${uuid}`)}}>Удалить</Button></TableCell>
+                  <TableCell><Button variant="contained" color="primary" startIcon={<EditIcon />} onClick={()=>{navigate(`/companies/edit/${uuid}`)}}>Редактировать</Button></TableCell>
+                </TableRow>
           </TableBody>
 
         </Table>

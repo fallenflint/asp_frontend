@@ -20,7 +20,7 @@ const ObjectList = ({columns, api_url}) => {
   const [sortModel, setSortModel] = useState([]);
 
   const fetchObjects = async (pageNumber) => {
-    const sortParams = sortModel.map(({ field, sort }) => `${sort == 'desc'? '-' : ''}${field}`).join(',');
+    const sortParams = sortModel.map(({ field, sort }) => `${sort === 'desc'? '-' : ''}${field}`).join(',');
     setLoading(true);
     setError(false);
     try {
@@ -70,8 +70,8 @@ const ObjectList = ({columns, api_url}) => {
                 onChange={handleSearch}
               />
             </Stack>
-            <Fab variant="extended">
-              <AddCircleOutlineOutlinedIcon /> Создать проект
+            <Fab variant="extended" onClick={()=> {navigate('./create')}}>
+              <AddCircleOutlineOutlinedIcon /> Создать
             </Fab>
         </Box>
         <div style={{ width: "100%" }}>
