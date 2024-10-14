@@ -4,12 +4,12 @@ import ObjectDetail from './ObjectDetail';
 const CompaniesList = () => {
   const columns = [
     { field: 'name', headerName: 'Наименование', flex: 1 },
-    { field: 'inn', headerName: 'ИНН', flex: 1 },
-    { field: 'type', headerName: 'Внутренняя компания', flex: 1 },
+    { field: 'inn', headerName: 'ИНН', flex: 1, valueFormatter: (value)=>value.replace(/(\d{3})(?=\d)/g, '$1-')},
+    { field: 'type', headerName: 'Тип', flex: 1 },
     { field: 'city', headerName: 'Менеджер', flex: 1 },
-    { field: 'address', headerName: 'Статус', flex: 1 },
-    { field: 'phone', headerName: 'Сумма', flex: 1 },
-    { field: 'email', headerName: 'Дата обновления', flex: 1 },
+    { field: 'address', headerName: 'Адрес', flex: 1 },
+    { field: 'phone', headerName: 'Телефон', flex: 1 },
+    { field: 'email', headerName: 'E-Mail', flex: 1 },
   ];
 
   return (
