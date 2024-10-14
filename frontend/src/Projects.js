@@ -1,4 +1,5 @@
 import ObjectList from './ObjectList';
+import ObjectDetail from './ObjectDetail';
 import { formatDate } from './utils/api';
 
 const ProjectList = () => {
@@ -19,3 +20,12 @@ const ProjectList = () => {
 };
 
 export default ProjectList;
+
+
+const ProjectDetail = () => {
+  return (
+    <ObjectDetail api_url={'//localhost/api/v1/projects/'}/>
+  );
+};
+
+export {ProjectDetail};

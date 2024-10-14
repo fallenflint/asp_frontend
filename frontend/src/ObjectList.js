@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { DataGrid } from "@mui/x-data-grid";
 import { apiFetch } from './utils/api';
 import Alert from '@mui/material/Alert';
@@ -10,6 +11,7 @@ const ObjectList = ({columns, api_url}) => {
   const [rowCount, setRowCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchObjects = async (pageNumber) => {
     setLoading(true);
@@ -44,6 +46,10 @@ const ObjectList = ({columns, api_url}) => {
         pageSize={pageSize}
         page={page - 1} // DataGrid uses 0-based index
         onPaginationModelChange={(model) => setPage(model.page + 1)}
+        onRowClick={(params) => {
+            const uuid = params.row.uuid;
+            navigate(`./detail/${uuid}`);
+        }}
         loading={loading}
         disableSelectionOnClick
         autoPageSize
@@ -54,6 +60,11 @@ const ObjectList = ({columns, api_url}) => {
               </div>
             ),
           }}
+        sx={{
+            '& .MuiDataGrid-row': {
+                cursor: 'pointer',
+            }
+        }}
       />
     </div>
   );

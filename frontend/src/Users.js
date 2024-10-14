@@ -1,4 +1,5 @@
 import ObjectList from './ObjectList';
+import ObjectDetail from './ObjectDetail';
 import { formatDate } from './utils/api';
 import CheckIcon from '@mui/icons-material/Check';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -22,3 +23,11 @@ const UserList = () => {
 };
 
 export default UserList;
+
+const UserDetail = () => {
+  return (
+    <ObjectDetail api_url={'//localhost/api/v1/users/'}/>
+  );
+};
+
+export {UserDetail};

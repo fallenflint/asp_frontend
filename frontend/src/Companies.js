@@ -1,4 +1,5 @@
 import ObjectList from './ObjectList';
+import ObjectDetail from './ObjectDetail';
 
 const CompaniesList = () => {
   const columns = [
@@ -9,13 +10,6 @@ const CompaniesList = () => {
     { field: 'address', headerName: 'Статус', flex: 1 },
     { field: 'phone', headerName: 'Сумма', flex: 1 },
     { field: 'email', headerName: 'Дата обновления', flex: 1 },
-
-    
-    
-    
-    
-    
-    
   ];
 
   return (
@@ -24,3 +18,12 @@ const CompaniesList = () => {
 };
 
 export default CompaniesList;
+
+
+const CompanyDetail = () => {
+  return (
+    <ObjectDetail api_url={'//localhost/api/v1/companies/'}/>
+  );
+};
+
+export {CompanyDetail};
