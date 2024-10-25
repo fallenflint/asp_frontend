@@ -2,6 +2,7 @@ import ObjectList from './ObjectList';
 import ObjectDetail from './ObjectDetail';
 import ObjectForm from './ObjectForm';
 
+
 const columns = [
   { field: 'name', headerName: 'Наименование', flex: 1 },
   { field: 'inn', headerName: 'ИНН', flex: 1, valueFormatter: (value)=>value.replace(/(\d{3})(?=\d)/g, '$1-')},
@@ -11,6 +12,7 @@ const columns = [
   { field: 'phone', headerName: 'Телефон', flex: 1 },
   { field: 'email', headerName: 'E-Mail', flex: 1 },
 ];
+
 
 const CompaniesList = () => {
 
@@ -24,7 +26,7 @@ export default CompaniesList;
 
 const CompanyDetail = () => {
   return (
-    <ObjectDetail api_url={'//localhost/api/v1/companies/'}/>
+    <ObjectDetail api_url={'//localhost/api/v1/companies/'} columns={columns}/>
   );
 };
 
@@ -35,4 +37,11 @@ const CompanyCreate = () => {
   );
 }
 
-export {CompanyDetail, CompanyCreate};
+
+const CompanyEdit = () => {
+  return (
+    <ObjectForm api_url={'//localhost/api/v1/companies/'} columns={columns} caption="Редактировать компанию" />
+  );
+}
+
+export {CompanyDetail, CompanyCreate, CompanyEdit};
