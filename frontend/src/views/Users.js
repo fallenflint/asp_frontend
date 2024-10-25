@@ -4,6 +4,7 @@ import ObjectForm from './base/ObjectForm';
 import { formatDate } from '../utils/api';
 import CheckIcon from '@mui/icons-material/Check';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { config } from '../config';
 
 const columns = [
   { field: 'email', headerName: 'Email', flex: 1},
@@ -20,7 +21,7 @@ const columns = [
 const UserList = () => {
 
   return (
-    <ObjectList columns={columns} api_url={'//localhost/api/v1/users/'}/>
+    <ObjectList columns={columns} api_url={config.USERS}/>
     );
 };
 
@@ -28,20 +29,20 @@ export default UserList;
 
 const UserDetail = () => {
   return (
-    <ObjectDetail api_url={'//localhost/api/v1/users/'} columns={columns}/>
+    <ObjectDetail api_url={config.USERS} columns={columns}/>
   );
 };
 
 const UserCreate = () => {
   return (
-    <ObjectForm api_url={'//localhost/api/v1/users/'} columns={columns} caption="Добавить нового пользователя" />
+    <ObjectForm api_url={config.USERS} columns={columns} caption="Добавить нового пользователя" />
   );
 }
 
 
 const UserEdit = () => {
   return (
-    <ObjectForm api_url={'//localhost/api/v1/users/'} columns={columns} caption="Редактировать пользователя" />
+    <ObjectForm api_url={config.USERS} columns={columns} caption="Редактировать пользователя" />
   );
 }
 

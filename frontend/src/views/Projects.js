@@ -2,6 +2,7 @@ import ObjectList from './base/ObjectList';
 import ObjectDetail from './base/ObjectDetail';
 import ObjectForm from './base/ObjectForm';
 import { formatDate } from '../utils/api';
+import { config } from '../config';
 
 
 const columns = [

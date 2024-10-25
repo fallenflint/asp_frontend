@@ -1,6 +1,7 @@
 import ObjectList from './base/ObjectList';
 import ObjectDetail from './base/ObjectDetail';
 import ObjectForm from './base/ObjectForm';
+import { config } from '../config';
 
 
 const columns = [
@@ -15,9 +16,8 @@ const columns = [
 
 
 const CompaniesList = () => {
-
   return (
-    <ObjectList columns={columns} api_url={'//localhost/api/v1/companies/'}/>
+    <ObjectList columns={columns} api_url={config.COMPANIES}/>
     );
 };
 
@@ -26,21 +26,21 @@ export default CompaniesList;
 
 const CompanyDetail = () => {
   return (
-    <ObjectDetail api_url={'//localhost/api/v1/companies/'} columns={columns}/>
+    <ObjectDetail api_url={config.COMPANIES} columns={columns}/>
   );
 };
 
 
 const CompanyCreate = () => {
   return (
-    <ObjectForm api_url={'//localhost/api/v1/companies/'} columns={columns} caption="Добавить новую компанию" />
+    <ObjectForm api_url={config.COMPANIES} columns={columns} caption="Добавить новую компанию" />
   );
 }
 
 
 const CompanyEdit = () => {
   return (
-    <ObjectForm api_url={'//localhost/api/v1/companies/'} columns={columns} caption="Редактировать компанию" />
+    <ObjectForm api_url={config.COMPANIES} columns={columns} caption="Редактировать компанию" />
   );
 }
 
