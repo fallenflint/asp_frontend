@@ -55,7 +55,7 @@ const ObjectList = ({columns, api_url}) => {
     }, 500));
   }
   return (
-    <Box sx={{ padding: 3 }}>
+    <Box sx={{ pt: 1 }}>
         <Box display="flex" justifyContent="space-between" alignItems="justify" mb={2}>
             <Stack direction="row" alignItems="flex-end">
               <IconButton>
@@ -74,19 +74,19 @@ const ObjectList = ({columns, api_url}) => {
               <AddCircleOutlineOutlinedIcon /> Создать
             </Fab>
         </Box>
-        <div style={{ width: "100%" }}>
           <DataGrid
             rows={objects}
             columns={columns}
             getRowId={(row) => row.uuid}
             paginationMode="server"
             rowCount={rowCount}
+            rowHeight={40}
             pageSize={pageSize}
             page={page - 1} // DataGrid uses 0-based index
             onPaginationModelChange={(model) => setPage(model.page + 1)}
             onRowClick={(params) => {
                 const uuid = params.row.uuid;
-                navigate(`./detail/${uuid}`);
+                navigate(`./${uuid}`);
             }}
             loading={loading}
             disableSelectionOnClick
@@ -106,7 +106,6 @@ const ObjectList = ({columns, api_url}) => {
                 }
             }}
           />
-        </div>
     </Box>
   );
 };
