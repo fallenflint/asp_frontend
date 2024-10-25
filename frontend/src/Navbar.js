@@ -14,14 +14,14 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link, useLocation } from 'react-router-dom';
 
 const pages = [
-  ['Проекты', '/'],
+  ['Проекты', '/projects'],
   ['Компании', '/companies'],
   ['Пользователи', '/users'],
 ];
 const settings = [
-  ['Profile', ''],
-  ['Account', ''],
-  ['Dashboard', ''],
+  ['Profile', '/profile'],
+  ['Account', '/account'],
+  ['Dashboard', '/'],
   ['Выйти', '/logout'],
 ];
 
