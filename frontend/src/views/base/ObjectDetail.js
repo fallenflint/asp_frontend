@@ -74,7 +74,7 @@ const ObjectDetail = ({api_url, columns}) => {
       <TableContainer >
         <Table>
           <TableBody>
-              {Object.entries(object).map(([key, value])=>(
+              {Object.entries(object).map(([key, value])=> (key !== 'uuid' && !column_map[key]?.hidden) && (
                 <TableRow>
                   <TableCell>{ column_map[key]?.headerName}</TableCell>
                   {/*<TableCell>{key}</TableCell>*/}
