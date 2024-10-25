@@ -1,6 +1,6 @@
-import ObjectList from './ObjectList';
-import ObjectDetail from './ObjectDetail';
-import ObjectForm from './ObjectForm';
+import ObjectList from './base/ObjectList';
+import ObjectDetail from './base/ObjectDetail';
+import ObjectForm from './base/ObjectForm';
 
 
 const columns = [

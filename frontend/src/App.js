@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { useState } from 'react';
 import LoginPage from './Login';
 import Logout from './Logout';
-import ProjectList, {ProjectDetail, ProjectCreate, ProjectEdit} from './Projects';
-import CompanyList, {CompanyDetail, CompanyCreate, CompanyEdit} from './Companies';
-import UserList, {UserDetail, UserCreate, UserEdit} from './Users';
+import ProjectList, {ProjectDetail, ProjectCreate, ProjectEdit} from './views/Projects';
+import CompanyList, {CompanyDetail, CompanyCreate, CompanyEdit} from './views/Companies';
+import UserList, {UserDetail, UserCreate, UserEdit} from './views/Users';
 import Layout from './Layout';
 import { isAuthenticated, setIsAuthenticated } from './utils/api';
 

@@ -1,7 +1,7 @@
-import ObjectList from './ObjectList';
-import ObjectDetail from './ObjectDetail';
-import ObjectForm from './ObjectForm';
-import { formatDate } from './utils/api';
+import ObjectList from './base/ObjectList';
+import ObjectDetail from './base/ObjectDetail';
+import ObjectForm from './base/ObjectForm';
+import { formatDate } from '../utils/api';
 import CheckIcon from '@mui/icons-material/Check';
 import CancelIcon from '@mui/icons-material/Cancel';
 

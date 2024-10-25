@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { DataGrid } from "@mui/x-data-grid";
-import { apiFetch } from './utils/api';
 import { Box, Fab, IconButton, TextField, Stack } from '@mui/material';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import Alert from '@mui/material/Alert';
+
+import { apiFetch } from '../../utils/api';
 
 const ObjectList = ({columns, api_url}) => {
   const [objects, setObjects] = useState([]);

@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import { DataGrid } from "@mui/x-data-grid";
 import { Typography, Stack } from '@mui/material';
-import { apiFetch } from './utils/api';
 import {Alert, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -13,6 +12,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+
+import { apiFetch } from '../../utils/api';
 
 const ObjectDetail = ({api_url, columns}) => {
   const [object, setObject] = useState({});

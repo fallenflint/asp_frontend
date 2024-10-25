@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import Container from '@mui/material/Container';
 import { Stack, Button, Box, TextField, Typography } from '@mui/material';
-// import { Modal } from '@mui/base/Modal';
 import { useNavigate, useParams } from 'react-router-dom';
-import { apiFetch } from './utils/api';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import EditIcon from '@mui/icons-material/Edit';
 
+import { apiFetch } from '../../utils/api';
+
 const ObjectForm = ({api_url, columns, caption}) => {
-    // const [open, setOpen] = useState(true);
-    // const handleOpen = () => setOpen(true);
-    // const handleClose = () => setOpen(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [errors, setErrors] = useState({});
