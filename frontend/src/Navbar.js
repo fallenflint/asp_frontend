@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const pages = [
   ['Проекты', '/'],
@@ -32,19 +32,20 @@ function Logo() {
 };
 
 function ASPNavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  // const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const location = useLocation();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  // const handleOpenNavMenu = (event) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (event) => {
-    setAnchorElNav(null);
-  };
+  // const handleCloseNavMenu = (event) => {
+  //   setAnchorElNav(null);
+  // };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -55,7 +56,7 @@ function ASPNavBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Logo/>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/*<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -90,7 +91,7 @@ function ASPNavBar() {
                   </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </Box>*/}
           <Typography
             variant="h5"
             noWrap
@@ -112,8 +113,9 @@ function ASPNavBar() {
             {pages.map(([page, link]) => (
               <Button
                 key={link}
-                onClick={handleCloseNavMenu}
+                // onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                {...(location.pathname === link ? {disabled: true } : {})}
                 component={Link}
                 to={link}
               >
