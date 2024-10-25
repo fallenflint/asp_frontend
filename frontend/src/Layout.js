@@ -10,8 +10,8 @@ const Layout = ({children}) => {
             <ASPNavBar/>
           </header>
           <main>{children}</main>
-          <footer>
-            <p>© 2024 T.F.G</p>
+          <footer style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
+            <div>© 2024 T.F.G</div>
           </footer>
         </div>
   );
