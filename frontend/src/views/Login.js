@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiFetch } from './utils/api';
 import { Box, Button, TextField, Typography, Link } from '@mui/material';
 
+import { apiFetch } from '../utils/api';
+import { config } from '../config';
 
 const LoginPage = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState('');
@@ -16,7 +17,7 @@ const LoginPage = ({ setIsAuthenticated }) => {
     };
 
     try {
-      const response = await apiFetch('http://localhost/api/token/', {
+      const response = await apiFetch(config.TOKEN, {
         method: 'POST',
         body: JSON.stringify(credentials)
       });

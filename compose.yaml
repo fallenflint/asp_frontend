@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - 3000:3000/tcp
+    env_file: ".env"
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
